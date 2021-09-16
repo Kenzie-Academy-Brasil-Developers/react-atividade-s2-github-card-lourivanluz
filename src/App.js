@@ -16,8 +16,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <SearchArea setApiResult={setApiResult} />
-        {apiResult && <ListResult resultList={resultList} />}
       </header>
+      <main>{apiResult && <ListResult resultList={resultList} />}</main>
     </div>
   );
 }

@@ -1,8 +1,9 @@
 import { useState } from "react";
-
+import "./style.css";
 export const SearchArea = ({ setApiResult }) => {
   const [inputSearch, setInputSearch] = useState("");
-  const [errorApi, setErrorApi] = useState(false);
+  const [error, setError] = useState(false);
+  const [menssage, setMenssage] = useState("");
 
   const dataApi = (data) => {
     const apiFilted = {
@@ -12,20 +13,22 @@ export const SearchArea = ({ setApiResult }) => {
       description: data.description,
       homepage: data.homepage,
     };
+    setError(false);
     return apiFilted;
   };
 
-  const nome = () => {
+  const searchInApi = () => {
     if (inputSearch === "") {
-      console.log("erro procurando vazio");
+      setError(true);
+      setMenssage("Campo de pesquisa vazio");
     } else {
       fetch(` https://api.github.com/repos/${inputSearch}`)
         .then((response) => response.json())
         .then((response) => dataApi(response))
         .then((response) => setApiResult(response))
-        .catch((err) => {
-          console.error(`Erro na Api${err}`);
-          setErrorApi(true);
+        .catch(() => {
+          setError(true);
+          setMenssage("Repositório não encontrado ou fora do ar");
         });
     }
   };
@@ -37,8 +40,12 @@ export const SearchArea = ({ setApiResult }) => {
         type="text"
         value={inputSearch}
         onChange={(event) => setInputSearch(event.target.value)}
+        className={error ? "inputError" : ""}
+        placeholder="Digite o nome do repositório"
+        required
       />
-      <button onClick={nome}>Pesquisar</button>
+      {error && <div>{menssage}</div>}
+      <button onClick={searchInApi}>Pesquisar</button>
     </div>
   );
 };

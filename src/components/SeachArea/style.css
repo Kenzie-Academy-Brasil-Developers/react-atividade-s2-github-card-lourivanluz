@@ -1,0 +1,20 @@
+.container-search {
+  position: relative;
+}
+label {
+  position: absolute;
+  opacity: 0;
+}
+#inputSearch {
+  width: 420px;
+  height: 40px;
+  border-radius: 20px;
+  padding-left: 15px;
+}
+#inputSearch:focus::placeholder {
+  color: transparent;
+}
+
+#inputSearch .inputError {
+  border: 1px solid red;
+}

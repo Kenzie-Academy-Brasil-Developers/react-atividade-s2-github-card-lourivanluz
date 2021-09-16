@@ -1,6 +1,5 @@
 import "./style.css";
 export const CardItem = ({ info: { avatarUrl, fullname, description } }) => {
-  //lourivanluz/calculadora-veterinaria-animais-silvestres
   return (
     <div className="container-card">
       <figure>
