@@ -1,0 +1,31 @@
+.container-card {
+  background-color: #191b2096;
+  display: flex;
+  padding: 15px;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+}
+.container-card figure {
+  max-width: 150px;
+  margin-bottom: 15px;
+}
+.container-card .container-text {
+  display: flex;
+  flex-direction: column;
+}
+.container-card .container-text h2 {
+  margin-bottom: 15px;
+}
+
+@media (min-width: 720px) {
+  .container-card {
+    flex-direction: row;
+    width: 600px;
+    align-items: flex-start;
+  }
+  .container-card figure {
+    margin-bottom: 0;
+    margin-right: 15px;
+  }
+}
