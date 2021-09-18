@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./style.css";
+import { ImSearch } from "react-icons/im";
+
 export const SearchArea = ({ setApiResult }) => {
   const [inputSearch, setInputSearch] = useState("");
   const [error, setError] = useState(false);
@@ -45,7 +47,19 @@ export const SearchArea = ({ setApiResult }) => {
         required
       />
       {error && <div>{menssage}</div>}
-      <button onClick={searchInApi}>Pesquisar</button>
+      {inputSearch !== "" ? (
+        <button
+          className="buttonClearSearch"
+          onClick={() => setInputSearch("")}
+        >
+          x
+        </button>
+      ) : (
+        ""
+      )}
+      <button className="buttonSearch" onClick={searchInApi}>
+        <ImSearch />
+      </button>
     </div>
   );
 };

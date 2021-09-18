@@ -1,5 +1,6 @@
 .container-search {
   position: relative;
+  margin-bottom: 30px;
 }
 label {
   position: absolute;
@@ -10,6 +11,7 @@ label {
   height: 40px;
   border-radius: 20px;
   padding-left: 15px;
+  border: none;
 }
 #inputSearch:focus::placeholder {
   color: transparent;
@@ -17,4 +19,29 @@ label {
 
 #inputSearch .inputError {
   border: 1px solid red;
+}
+.buttonSearch {
+  width: 80px;
+  height: 40px;
+  border: none;
+  background-color: royalblue;
+  color: white;
+  text-transform: uppercase;
+  border-radius: 0 20px 20px 0;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  cursor: pointer;
+}
+.buttonClearSearch {
+  background-color: white;
+  border: none;
+  text-transform: uppercase;
+  color: rgb(44, 44, 44);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 80px;
+  padding: 0 5px;
+  cursor: pointer;
 }
